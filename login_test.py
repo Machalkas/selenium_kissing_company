@@ -13,7 +13,7 @@ class TestStringMethods(unittest.TestCase):
     def testInputFieldCount(self):
         auth_elements = self.driver.find_elements(By.XPATH, "//*[contains(@id, 'input-')]")
         assert len(auth_elements) == 2, f"Found {len(auth_elements)}, but 2 was preferred"
-        # assert "Логин" in driver.label
+
     
     def testLogin(self):
         username, password = self.driver.find_elements(By.XPATH, "//*[contains(@id, 'input-')]")
