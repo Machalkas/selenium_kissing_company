@@ -1,5 +1,4 @@
 import os
-import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
@@ -23,6 +22,3 @@ class TestStringMethods(unittest.TestCase):
         username.send_keys("user")
         password.send_keys('123')
         button.click()
-        time.sleep(5)
-
-
