@@ -75,7 +75,7 @@ class TestStringMethods(unittest.TestCase):
         filterDaddy.click()
         time.sleep(1)
         hideFilter = self.driver.find_element(By.XPATH, "//span[contains (@class, 'v-btn__content') and text() = ' Скрыть фильтр ']")
-        assert hideFilter.is_displayed()
+        assert hideFilter.is_displayed(), "Filter is not displayed"
         assert self.driver.current_url == 'http://localhost:33770/user/girls', "Fail to login"
 
     def testServiceHistory(self):
