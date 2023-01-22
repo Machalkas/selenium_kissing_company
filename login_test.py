@@ -32,6 +32,9 @@ class TestStringMethods(unittest.TestCase):
         EXE_PATH = r'D:\program files\PProject\selent5\GoogleDriver\chromedriver.exe'
         self.driver = webdriver.Chrome(executable_path=EXE_PATH)
         self.driver.get("http://localhost:33770/")
+    
+    def tearDown(self) -> None:
+        self.driver.close()
 
     def testfirst(self):
         try:
