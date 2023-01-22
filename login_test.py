@@ -22,3 +22,4 @@ class TestStringMethods(unittest.TestCase):
         username.send_keys("user")
         password.send_keys('123')
         button.click()
+        assert self.driver.current_url == 'http://localhost:33770/user', "Fail to login"
