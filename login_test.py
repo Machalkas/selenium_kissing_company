@@ -28,13 +28,13 @@ import unittest
 
 class TestStringMethods(unittest.TestCase):
     def setUp(self) -> None:
-        #EXE_PATH = f'{os.getcwd()}\GoogleDriver\chromedriver.exe'
-        EXE_PATH = r'D:\program files\PProject\selent5\GoogleDriver\chromedriver.exe'
+        EXE_PATH = f'{os.getcwd()}\GoogleDriver\chromedriver.exe'
+        #EXE_PATH = r'D:\program files\PProject\selent5\GoogleDriver\chromedriver.exe'
         self.driver = webdriver.Chrome(executable_path=EXE_PATH)
         self.driver.get("http://localhost:33770/")
     
-    def tearDown(self) -> None:
-        self.driver.close()
+    # def tearDown(self) -> None:
+    #     self.driver.close()
 
     def testfirst(self):
         try:
@@ -97,6 +97,8 @@ class TestStringMethods(unittest.TestCase):
         catalog = self.driver.find_element(By.XPATH, "//div[contains (@class, 'v-list-item__title') and text() = 'История заказов']")
         catalog.click()
         time.sleep(2)
+        serviceHistory = self.driver.find_element(By.XPATH, "//div[contains (@class, 'row row--dense')]")
+        assert serviceHistory.is_displayed(), "history doesnt work"
         assert self.driver.current_url == 'http://localhost:33770/user/history', "Fail to login"
 
     def testFeedbacks(self):
@@ -117,6 +119,8 @@ class TestStringMethods(unittest.TestCase):
         catalog = self.driver.find_element(By.XPATH, "//div[contains (@class, 'v-list-item__title') and text() = 'Отзывы о приложении']")
         catalog.click()
         time.sleep(2)
+        feedbacksList = self.driver.find_element(By.XPATH, "//div[contains (@class, 'user-comment')]")
+        assert feedbacksList.is_displayed(), "Feedbackov NETY I BIT NE MOJET"
         assert self.driver.current_url == 'http://localhost:33770/user/appfeedback', "Fail to login"
 
     def testExit(self):
